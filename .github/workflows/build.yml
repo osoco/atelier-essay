@@ -1,0 +1,35 @@
+name: Build and release PDFs
+
+on:
+  push:
+    branches: [ master, main ]
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Tectonic
+        run: |
+          curl -sL "https://github.com/tectonic-typesetting/tectonic/releases/download/tectonic%400.15.0/tectonic-0.15.0-x86_64-unknown-linux-musl.tar.gz" | tar xz
+          sudo install -m755 tectonic /usr/local/bin/tectonic
+
+      - name: Build PDFs
+        run: make
+
+      - name: Publish release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TAG="v$(cat VERSION)-$(date -u +%Y%m%d)"
+          TITLE="As We May Think Software $TAG"
+          NOTES="PDFs del ensayo (ES y EN) construidos automáticamente a partir de ${GITHUB_SHA::7}."
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            gh release upload "$TAG" essay/*.pdf --clobber
+          else
+            gh release create "$TAG" --title "$TITLE" --notes "$NOTES" essay/*.pdf
+          fi
