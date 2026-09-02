@@ -10,6 +10,8 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      ZENODO_TOKEN: ${{ secrets.ZENODO_TOKEN }}
     steps:
       - uses: actions/checkout@v4
 
@@ -41,7 +43,5 @@ jobs:
       # Cada push publica una nueva versión en Zenodo (también los cambios
       # del mismo día), siempre que el secret ZENODO_TOKEN esté configurado.
       - name: Deposit on Zenodo
-        if: secrets.ZENODO_TOKEN != ''
-        env:
-          ZENODO_TOKEN: ${{ secrets.ZENODO_TOKEN }}
+        if: env.ZENODO_TOKEN != ''
         run: bash scripts/zenodo-deposit.sh "${{ steps.release.outputs.tag }}"
