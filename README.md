@@ -1,6 +1,6 @@
 # atelier-essay
 
-Fuentes LaTeX del ensayo **«As We May Think Software»** (ficción de diseño
+Fuentes LaTeX del ensayo **«Atelier: As We May Think Software»** (ficción de diseño
 sobre una cultura de software alternativa, continuación de la visión del
 ensayo previo de Tomas Petricek), de Rafael Luque Leiva
 ([OSOCO](https://osoco.es)), en sus versiones en español e inglés.

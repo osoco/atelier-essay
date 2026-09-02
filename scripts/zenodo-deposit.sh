@@ -46,10 +46,11 @@ for F in "essay/As_We_May_Think_Software-ES.pdf" \
   curl -sf -H "$AUTH" --upload-file "$F" "$BUCKET/$(basename "$F")" > /dev/null
 done
 
-# Actualizar versión y fecha de publicación en los metadatos
+# Actualizar metadatos: los heredados + los canónicos de .zenodo.json +
+# versión y fecha de publicación
 curl -sf -H "$AUTH" "$DRAFT_URL" \
-  | jq --arg v "$TAG" --arg d "$(date -u +%F)" \
-    '{metadata: (.metadata + {version: $v, publication_date: $d})}' \
+  | jq --slurpfile z .zenodo.json --arg v "$TAG" --arg d "$(date -u +%F)" \
+    '{metadata: (.metadata + $z[0] + {version: $v, publication_date: $d})}' \
   | curl -sf -X PUT -H "$AUTH" -H "Content-Type: application/json" \
       -d @- "$DRAFT_URL" > /dev/null
 

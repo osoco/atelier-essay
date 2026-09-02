@@ -29,7 +29,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           TAG="v$(cat VERSION)-$(date -u +%Y%m%d)"
-          TITLE="As We May Think Software $TAG"
+          TITLE="Atelier: As We May Think Software $TAG"
           NOTES="PDFs del ensayo (ES y EN) construidos automáticamente a partir de ${GITHUB_SHA::7}."
           if gh release view "$TAG" >/dev/null 2>&1; then
             gh release upload "$TAG" essay/*.pdf --clobber
