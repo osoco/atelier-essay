@@ -17,14 +17,17 @@ LATEST_ID=$(echo "$LATEST" | jq -r '.[0].id')
 SUBMITTED=$(echo "$LATEST" | jq -r '.[0].submitted')
 
 if [ "$SUBMITTED" = "true" ]; then
-  curl -sf -X POST -H "$AUTH" \
-    "$API/deposit/depositions/$LATEST_ID/actions/newversion" > /dev/null
-  DRAFT_URL=$(curl -sf -H "$AUTH" \
-    "$API/deposit/depositions?q=conceptrecid:$CONCEPT_RECID&sort=mostrecent&size=1" \
-    | jq -r '.[0].links.self')
+  # newversion devuelve el borrador nuevo (o el existente, si quedó uno a
+  # medias); según la variante de la API el borrador viene en
+  # links.latest_draft o es la propia respuesta.
+  NEWV=$(curl -sf -X POST -H "$AUTH" \
+    "$API/deposit/depositions/$LATEST_ID/actions/newversion")
+  DRAFT_ID=$(echo "$NEWV" | jq -r \
+    'if .links.latest_draft then (.links.latest_draft | split("/") | last) else (.id | tostring) end')
 else
-  DRAFT_URL=$(echo "$LATEST" | jq -r '.[0].links.self')
+  DRAFT_ID="$LATEST_ID"
 fi
+DRAFT_URL="$API/deposit/depositions/$DRAFT_ID"
 echo "Borrador: $DRAFT_URL"
 
 # Eliminar los ficheros heredados de la versión anterior
