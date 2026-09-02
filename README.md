@@ -2,7 +2,7 @@
 
 Fuentes LaTeX del ensayo **«As We May Think Software»** (ficción de diseño
 sobre una cultura de software alternativa, continuación de la visión del
-ensayo previo de Tomas Petricek), de Rafael Luque
+ensayo previo de Tomas Petricek), de Rafael Luque Leiva
 ([OSOCO](https://osoco.es)), en sus versiones en español e inglés.
 
 El ensayo se publicó originalmente en el blog de OSOCO:
