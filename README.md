@@ -56,4 +56,4 @@ versiones están siempre disponibles en:
 ## Licencia
 
 Este trabajo se distribuye bajo la licencia
-[Creative Commons Attribution 4.0 International (CC BY 4.0)](LICENSE).
+[Creative Commons Atribución-NoComercial-CompartirIgual 4.0 Internacional (CC BY-NC-SA 4.0)](LICENSE).

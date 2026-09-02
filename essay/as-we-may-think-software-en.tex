@@ -22,6 +22,14 @@
 
 \newcommand{\separador}{\begin{center}* \quad * \quad *\end{center}}
 
+% Nota al pie sin marca, para el aviso de licencia en la primera página
+\newcommand{\blfootnote}[1]{%
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \endgroup
+}
+
 \title{As We May Think Software\\[0.5em]
   {\large Fictional minutes from an alternative software culture}}
 \author{Rafael Luque\\ {\normalsize OSOCO --- \url{https://osoco.es}}}
@@ -30,6 +38,9 @@
 \begin{document}
 
 \maketitle
+\blfootnote{This work is licensed under a Creative Commons
+Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA
+4.0): \url{https://creativecommons.org/licenses/by-nc-sa/4.0/}}
 
 \begin{abstract}
 Continuing the vision of software design sketched in Petricek's earlier essay~\cite{petricek}, these fictional minutes recount the visit of a committee of software
