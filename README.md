@@ -50,14 +50,23 @@ versiones están siempre disponibles en:
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22260777.svg)](https://doi.org/10.5281/zenodo.22260777)
 
-Gracias a la integración GitHub–Zenodo, cada release de GitHub queda
-archivada en Zenodo con un DOI propio; el *concept DOI*
+Cada release nueva de GitHub queda archivada en Zenodo como una versión con
+DOI propio; el *concept DOI*
 [10.5281/zenodo.22260777](https://doi.org/10.5281/zenodo.22260777) apunta
-siempre a la última versión. Los metadatos del depósito (autor, licencia,
-resumen, palabras clave) se toman de [`.zenodo.json`](.zenodo.json).
+siempre a la última versión. El depósito lo hace la propia CI mediante la
+API de Zenodo (`scripts/zenodo-deposit.sh`), de modo que cada versión
+contiene los **PDFs construidos** (ES y EN) además de una instantánea de las
+fuentes. Los metadatos del primer depósito se tomaron de
+[`.zenodo.json`](.zenodo.json); las versiones siguientes los heredan.
 
-Zenodo archiva la instantánea de las fuentes de cada release; los PDFs
-construidos siguen disponibles como adjuntos de las releases de GitHub.
+Configuración necesaria (una sola vez):
+
+- Secret `ZENODO_TOKEN` en el repo: un *personal access token* de Zenodo
+  con los scopes `deposit:write` y `deposit:actions`.
+- El interruptor de la integración GitHub–Zenodo
+  (*Settings → GitHub* en Zenodo) debe estar **desactivado** para este repo:
+  de lo contrario cada release generaría dos versiones (la del webhook, solo
+  con fuentes, y la de la CI).
 
 Nota: el ensayo se envió a arXiv (cs.SE) en septiembre de 2026 y fue
 rechazado por los moderadores por tipo de contenido — arXiv no acepta
