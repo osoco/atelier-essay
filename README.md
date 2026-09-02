@@ -48,21 +48,16 @@ versiones están siempre disponibles en:
 
 ## DOI vía Zenodo
 
-<!-- Tras el primer depósito, sustituir por el badge real:
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.XXXXXXX.svg)](https://doi.org/10.5281/zenodo.XXXXXXX)
--->
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22260777.svg)](https://doi.org/10.5281/zenodo.22260777)
 
-El repositorio está preparado para la
-[integración GitHub–Zenodo](https://zenodo.org/account/settings/github/):
-cada release de GitHub queda archivada en Zenodo con un DOI propio, y un
-*concept DOI* apunta siempre a la última versión. Los metadatos del depósito
-(autor, licencia, resumen, palabras clave) se toman de [`.zenodo.json`](.zenodo.json).
+Gracias a la integración GitHub–Zenodo, cada release de GitHub queda
+archivada en Zenodo con un DOI propio; el *concept DOI*
+[10.5281/zenodo.22260777](https://doi.org/10.5281/zenodo.22260777) apunta
+siempre a la última versión. Los metadatos del depósito (autor, licencia,
+resumen, palabras clave) se toman de [`.zenodo.json`](.zenodo.json).
 
-Para activarla (una sola vez): entrar en Zenodo con la cuenta de GitHub,
-abrir *Settings → GitHub*, activar el interruptor de `osoco/atelier-essay` y
-crear una nueva release (basta con subir `VERSION` y hacer push). Zenodo
-archiva la instantánea de las fuentes en cada release; los PDFs construidos
-siguen disponibles como adjuntos de las releases de GitHub.
+Zenodo archiva la instantánea de las fuentes de cada release; los PDFs
+construidos siguen disponibles como adjuntos de las releases de GitHub.
 
 Nota: el ensayo se envió a arXiv (cs.SE) en septiembre de 2026 y fue
 rechazado por los moderadores por tipo de contenido — arXiv no acepta
