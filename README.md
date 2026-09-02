@@ -18,6 +18,8 @@ El ensayo se publicó originalmente en el blog de OSOCO:
   - `figures/` — ilustraciones (imágenes conceptuales generadas mediante IA
     generativa, indicadas como tales en los pies de figura)
 - `VERSION` — versión del ensayo, usada por la CI para etiquetar las releases
+- `.zenodo.json` / `CITATION.cff` — metadatos para el depósito en Zenodo y
+  para la cita del repositorio
 
 ## Construir los PDFs en local
 
@@ -44,14 +46,27 @@ versiones están siempre disponibles en:
 - https://github.com/osoco/atelier-essay/releases/latest/download/As_We_May_Think_Software-ES.pdf
 - https://github.com/osoco/atelier-essay/releases/latest/download/As_We_May_Think_Software-EN.pdf
 
-## Publicación en repositorios de preprints
+## DOI vía Zenodo
 
-- **arXiv**: compila con pdflatex y solo usa paquetes estándar, así que basta
-  con subir el contenido de `essay/` (el `.tex` correspondiente y
-  `figures/`). arXiv requiere *endorsement* para el primer envío a una
-  categoría (p. ej. cs.SE o cs.HC).
-- **Zenodo**: acepta directamente el PDF construido y asigna DOI sin proceso
-  de aprobación; es la vía más rápida para obtener un identificador citable.
+<!-- Tras el primer depósito, sustituir por el badge real:
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.XXXXXXX.svg)](https://doi.org/10.5281/zenodo.XXXXXXX)
+-->
+
+El repositorio está preparado para la
+[integración GitHub–Zenodo](https://zenodo.org/account/settings/github/):
+cada release de GitHub queda archivada en Zenodo con un DOI propio, y un
+*concept DOI* apunta siempre a la última versión. Los metadatos del depósito
+(autor, licencia, resumen, palabras clave) se toman de [`.zenodo.json`](.zenodo.json).
+
+Para activarla (una sola vez): entrar en Zenodo con la cuenta de GitHub,
+abrir *Settings → GitHub*, activar el interruptor de `osoco/atelier-essay` y
+crear una nueva release (basta con subir `VERSION` y hacer push). Zenodo
+archiva la instantánea de las fuentes en cada release; los PDFs construidos
+siguen disponibles como adjuntos de las releases de GitHub.
+
+Nota: el ensayo se envió a arXiv (cs.SE) en septiembre de 2026 y fue
+rechazado por los moderadores por tipo de contenido — arXiv no acepta
+ensayos ni piezas de visión, solo artículos de investigación convencionales.
 
 ## Licencia
 
