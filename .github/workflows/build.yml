@@ -38,10 +38,10 @@ jobs:
           fi
           echo "tag=$TAG" >> "$GITHUB_OUTPUT"
 
-      # Solo en releases nuevas (no en las actualizaciones del mismo día), y
-      # solo si el secret ZENODO_TOKEN está configurado.
+      # Cada push publica una nueva versión en Zenodo (también los cambios
+      # del mismo día), siempre que el secret ZENODO_TOKEN esté configurado.
       - name: Deposit on Zenodo
-        if: steps.release.outputs.created == 'true' && secrets.ZENODO_TOKEN != ''
+        if: secrets.ZENODO_TOKEN != ''
         env:
           ZENODO_TOKEN: ${{ secrets.ZENODO_TOKEN }}
         run: bash scripts/zenodo-deposit.sh "${{ steps.release.outputs.tag }}"

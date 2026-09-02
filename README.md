@@ -50,7 +50,7 @@ versiones están siempre disponibles en:
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22260777.svg)](https://doi.org/10.5281/zenodo.22260777)
 
-Cada release nueva de GitHub queda archivada en Zenodo como una versión con
+Cada push a `master` queda archivado en Zenodo como una versión con
 DOI propio; el *concept DOI*
 [10.5281/zenodo.22260777](https://doi.org/10.5281/zenodo.22260777) apunta
 siempre a la última versión. El depósito lo hace la propia CI mediante la
