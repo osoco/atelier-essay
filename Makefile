@@ -8,8 +8,8 @@ all:
 			latexmk -cd -pdf -interaction=nonstopmode $$t; \
 		fi; \
 	done
-	@mv essay/as-we-may-think-software-es.pdf "essay/As We May Think Software-ES.pdf"
-	@mv essay/as-we-may-think-software-en.pdf "essay/As We May Think Software-EN.pdf"
+	@mv essay/as-we-may-think-software-es.pdf "essay/As_We_May_Think_Software-ES.pdf"
+	@mv essay/as-we-may-think-software-en.pdf "essay/As_We_May_Think_Software-EN.pdf"
 	@ls -1 essay/*.pdf
 
 clean:
