@@ -18,6 +18,16 @@
 \usepackage{graphicx}
 \usepackage[margin=3cm]{geometry}
 \usepackage[pdfborder={0 0 1},allbordercolors={0.13 0.44 0.71}]{hyperref}
+\usepackage{tikz}
+
+% Sello con el DOI fijo (concept DOI) en el margen izquierdo de la primera
+% página, al estilo del sello de arXiv.
+\newcommand{\doistamp}{%
+  \begin{tikzpicture}[remember picture, overlay]
+    \node[rotate=90, anchor=center, text=black!50] at ([xshift=1.5cm]current page.west)
+      {\ttfamily\small\hypersetup{pdfborder={0 0 0}}%
+       \href{https://doi.org/10.5281/zenodo.22260777}{doi:10.5281/zenodo.22260777}};
+  \end{tikzpicture}}
 
 \setcounter{secnumdepth}{0}
 \setcounter{tocdepth}{1}
@@ -40,6 +50,7 @@
 \begin{document}
 
 \maketitle
+\doistamp
 \blfootnote{Este trabajo se distribuye bajo una licencia Creative Commons
 Atribución-NoComercial-CompartirIgual 4.0 Internacional (CC BY-NC-SA 4.0):
 \url{https://creativecommons.org/licenses/by-nc-sa/4.0/}}
