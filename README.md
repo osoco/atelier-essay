@@ -41,8 +41,8 @@ como release con la etiqueta `v<VERSION>-<fecha de build>` (varios pushes el
 mismo día actualizan los adjuntos de esa misma release). Las últimas
 versiones están siempre disponibles en:
 
-- https://github.com/osoco/atelier-essay/releases/latest/download/as-we-may-think-software-es.pdf
-- https://github.com/osoco/atelier-essay/releases/latest/download/as-we-may-think-software-en.pdf
+- https://github.com/osoco/atelier-essay/releases/latest/download/As.We.May.Think.Software-ES.pdf
+- https://github.com/osoco/atelier-essay/releases/latest/download/As.We.May.Think.Software-EN.pdf
 
 ## Publicación en repositorios de preprints
 
