@@ -39,8 +39,8 @@ done
 BUCKET=$(curl -sf -H "$AUTH" "$DRAFT_URL" | jq -r '.links.bucket')
 git archive --format=zip --prefix="atelier-essay-$TAG/" \
   -o "atelier-essay-$TAG-sources.zip" HEAD
-for F in "essay/As_We_May_Think_Software-ES.pdf" \
-         "essay/As_We_May_Think_Software-EN.pdf" \
+for F in "essay/Atelier_As_We_May_Think_Software-ES.pdf" \
+         "essay/Atelier_As_We_May_Think_Software-EN.pdf" \
          "atelier-essay-$TAG-sources.zip"; do
   echo "Subiendo $(basename "$F")..."
   curl -sf -H "$AUTH" --upload-file "$F" "$BUCKET/$(basename "$F")" > /dev/null
